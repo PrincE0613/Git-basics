@@ -1,5 +1,5 @@
 # Git-basics
 this is my first Git Repository.
 <br>
-Author - Prince
+Author Name - Prince (Gla)
 <hr>
