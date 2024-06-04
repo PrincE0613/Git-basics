@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Generator</title>
+    <style>
+        body {
+            font-family: 'times new roman', sans-serif;
+            background-color: #dfd8d85b;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #153ba56b;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0a0000d7;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: hsla(0, 0%, 0%, 0.665);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        .roadmap {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .roadmap-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roadmap Generator</h1>
+        <hr>
+        <div class="input-group">
+            <label for="task*">Task*</label>
+            <input type="text" id="task*" placeholder="Enter task">
+        </div>
+        <div class="input-group">
+            <label for="description*">Description*</label>
+            <textarea id="description*" rows="4" placeholder="Enter task description"></textarea>
+        </div>
+        <div class="input-group">
+            <label for="timeline*">Timeline*</label>
+            <input type="text" id="timeline*" placeholder="Enter timeline (e.g., Q1 2023)">
+        </div>
+        <hr>
+        <button onclick="generateRoadmap()">Generate Roadmap</button>
+        <div id="roadmap" class="roadmap"></div>
+    </div>
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const task = document.getElementById('task').value;
+            const description = document.getElementById('description').value;
+            const timeline = document.getElementById('timeline').value;
+
+            if (task && description && timeline) {
+                tasks.push({ task, description, timeline });
+                document.getElementById('task').value = '';
+                document.getElementById('description').value = '';
+                document.getElementById('timeline').value = '';
+                alert('Task added successfully');
+            } else {
+                alert('Please fill out all fields');
+            }
+        }
+
+        function generateRoadmap() {
+            // Placeholder for AI logic
+            const roadmap = tasks.sort((a, b) => a.timeline.localeCompare(b.timeline));
+            
+            const roadmapContainer = document.getElementById('roadmap');
+            roadmapContainer.innerHTML = '';
+
+            roadmap.forEach((item, index) => {
+                const roadmapItem = document.createElement('div');
+                roadmapItem.className = 'roadmap-item';
+                roadmapItem.innerHTML = `<strong>Task ${index + 1}:</strong> ${item.task}<br>
+                                        <strong>Description:</strong> ${item.description}<br>
+                                        <strong>Timeline:</strong> ${item.timeline}`;
+                roadmapContainer.appendChild(roadmapItem);
+            });
+        }
+    </script>
+</body>
+</html>
