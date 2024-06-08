@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadmap Generator</title>
+    <title>Login</title>
     <style>
         body {
             font-family: 'times new roman', sans-serif;
@@ -31,33 +31,32 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size:4cap;
             margin-bottom: 20px;
-            color: #0a0000d7;
+            color: #000000;
         }
 
         .input-group {
             margin-bottom: 15px;
-            text-align: left;
+            text-align:left;
             font-size: 24px;
         }
 
         label {
             display: block;
-            font-weight: bold;
+            font-weight:bold;
             margin-bottom: 5px;
         }
-
         input, textarea {
+            background-color: hsla(12, 29%, 97%, 0.153);
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid hsla(0, 83%, 42%, 0);
             border-radius: 4px;
             font-size: 16px;
             box-sizing: border-box;
         }
-
         input:focus, textarea:focus {
             outline: none;
             border-color: #000000;
@@ -68,7 +67,7 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: hsla(207, 90%, 33%, 0.865);
+            background-color: hsla(0, 0%, 0%, 0.802);
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -81,7 +80,7 @@
         }
 
         .roadmap {
-            margin-top: 20px;
+            margin-top: 50px;
             text-align: left;
         }
 
@@ -102,33 +101,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>Roadmap Generator</h1>
+        <h1>Login</h1>
         <hr>
         <div class="input-group">
-            <label for="task*">Task*</label>
-            <input type="text" id="task*" placeholder="Enter task">
+            <label for="Username">Username</label>
+            <input type="text" id="Username" placeholder="Enter Username">
         </div>
         <div class="input-group">
-            <label for="description*">Description*</label>
-            <textarea id="description*" rows="4" placeholder="Enter task description"></textarea>
-        </div>
-        <div class="input-group">
-            <label for="timeline*">Timeline*</label>
-            <input type="text" id="timeline*" placeholder="Enter timeline (e.g., Q1 2023)">
+            <label for="Password">Password</label>
+            <input type="text" id="Password" placeholder="Enter Password">
         </div>
         <hr>
-        <button onclick="generateRoadmap()">Generate Roadmap</button>
-        <div id="roadmap" class="roadmap"></div>
+        <div class="new page">
+            <label for="Forgot Password">Forgot Password</label>
+        </div>
+        <button Oneclick="Login()">Login</button>
+        <div id="Login" class="Login"></div>
     </div>
     <script>
         let tasks = [];
-
         function addTask() {
             const task = document.getElementById('task').value;
             const description = document.getElementById('description').value;
             const timeline = document.getElementById('timeline').value;
 
-            if (task && description && timeline) {
+            if (Username && Password) {
                 tasks.push({ task, description, timeline });
                 document.getElementById('task').value = '';
                 document.getElementById('description').value = '';
